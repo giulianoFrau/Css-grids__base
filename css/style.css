@@ -1,45 +1,48 @@
 
-
 .container {
   width: 1000px;
-  background-color: white;
+  background-color: grey;
   margin:30px auto;
-  display: grid; /* prima proprieta. dopo dobbiamo definire righe e colonne.se vogliamo 2 righe e 3 colonne definiamo altezza di row e column.Il totale cmq deve sempre dare totale item*/
-  grid-template-rows: repeat(4, 150px); /*il totale di row e column deve essere lo stesso degli item (in questo caso 6 percio 2 righe x 3 colonne). repeat 2 righe di 150px */
-  grid-template-columns: repeat(4, 150px);/*fr:fractional unit,permette di occupare tutto lo spazio del container.Se tutte devono usare il container tranne l'ultima:repeat(2,150px) 1fr; */
-  grid-row-gap: 20px; /*spazia le righe*/
-  grid-column-gap: 50px;/*spazia le colonne*/ /*grid-gap: 50px; se vogliamo la stessa spaziatura in row e column*/ 
-  /* è possibile dare dei nomi cosi ->[header]  ai grid template row  e column.negli item poi possiamo scrivere questi nomi anziche 1/3 2/3 ecc*/
+  display: grid;
+  grid-template-rows: repeat(2,minmax(150px,min-content));
+  /*grid-template-columns: max-content 1fr 1fr min-content; /* alternativa a quella sotto.usando max content il contenitore si allarga a seconda degli elementi presenti all interno,min content cerca di adattare il contenuto dentro*/
+grid-template-columns: minmax(200px,300px) repeat(3,1fr); /*in questo modo il contenuto si adatta*/
 
 }
 
-
-.header{
-  grid-column:1/-1 ;
-  background-color: red;
+.item{
+padding: 10px;
+color:white;
+font-family: sans-serif;
+font-size: 30px;
+background-color: red;
 }
 
-.smallbox{
-  background-color: red;
+.item--1{
+background-color: red;
+}
+.item--2{
+  background-color: blue;
+}
+.item--3{
+  background-color: green;
+}
+.item--4{
+  background-color: yellow;
+}
+.item--5{
+  background-color: fuchsia;
+}
+.item--6{
+  background-color: turquoise;
+}
+.item--7{
+  background-color: sienna;
+}
+.item--8{
+  background-color: grey;
 }
 
-.sidebar{
-  background-color: red;
-  grid-row: 2/ span 2;  /*POSSIAMO USARE ANCHE SPAN 1,2,3 ECC come elemento finale PER FAR CRESCERE L'ELEMENTO IL DOPPIO IL TRIPLO ECC*/
-  grid-column: 4/5;
-}
-
-.main{
-  background-color: red;
- 
-  grid-column: 1/span 3;
-}
-
-
-.footer{
-grid-column:1/-1 ;
-  background-color: red;
-}
 
 
 
@@ -47,6 +50,36 @@ grid-column:1/-1 ;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PROGETTO 1 */
 /*****HTML VECCHIO****/    
 
 /*
@@ -111,5 +144,72 @@ grid-column: 2/3;
   grid-row:1/2;
   grid-column:2/3;
 }
+
+*/
+
+
+
+
+
+
+
+/* PROGETTO 2 
+
+********** HTML ***********
+
+    <div class="container">
+       <div class="header">header</div>
+       <div class="smallbox">small1</div>
+       <div class="smallbox">small2</div>
+       <div class="smallbox">small3</div>
+       <div class="sidebar">sidebar</div>
+
+       <div class="main">main</div>
+       <div class="footer">footer</div>
+        </div>
+
+
+************** CSS ***************
+.container {
+  width: 1000px;
+  background-color: white;
+  margin:30px auto;
+  display: grid;  prima proprieta. dopo dobbiamo definire righe e colonne.se vogliamo 2 righe e 3 colonne definiamo altezza di row e column.Il totale cmq deve sempre dare totale item
+  grid-template-rows: repeat(4, 150px); il totale di row e column deve essere lo stesso degli item (in questo caso 6 percio 2 righe x 3 colonne). repeat 2 righe di 150px 
+  grid-template-columns: repeat(4, 150px);fr:fractional unit,permette di occupare tutto lo spazio del container.Se tutte devono usare il container tranne l'ultima:repeat(2,150px) 1fr; 
+  grid-row-gap: 20px; spazia le righe
+  grid-column-gap: 50px; spazia le colonne grid-gap: 50px; se vogliamo la stessa spaziatura in row e column
+   è possibile dare dei nomi cosi ->[header]  ai grid template row  e column.negli item poi possiamo scrivere questi nomi anziche 1/3 2/3 ecc
+
+}
+
+
+.header{
+  grid-column:1/-1 ;
+  background-color: red;
+}
+
+.smallbox{
+  background-color: red;
+}
+
+.sidebar{
+  background-color: red;
+  grid-row: 2/ span 2;  POSSIAMO USARE ANCHE SPAN 1,2,3 ECC come elemento finale PER FAR CRESCERE L'ELEMENTO IL DOPPIO IL TRIPLO ECC
+  grid-column: 4/5;
+}
+
+.main{
+  background-color: red;
+ 
+  grid-column: 1/span 3;
+}
+
+
+.footer{
+grid-column:1/-1 ;
+  background-color: red;
+}
+
 
 */
