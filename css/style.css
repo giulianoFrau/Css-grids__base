@@ -1,0 +1,115 @@
+
+
+.container {
+  width: 1000px;
+  background-color: white;
+  margin:30px auto;
+  display: grid; /* prima proprieta. dopo dobbiamo definire righe e colonne.se vogliamo 2 righe e 3 colonne definiamo altezza di row e column.Il totale cmq deve sempre dare totale item*/
+  grid-template-rows: repeat(4, 150px); /*il totale di row e column deve essere lo stesso degli item (in questo caso 6 percio 2 righe x 3 colonne). repeat 2 righe di 150px */
+  grid-template-columns: repeat(4, 150px);/*fr:fractional unit,permette di occupare tutto lo spazio del container.Se tutte devono usare il container tranne l'ultima:repeat(2,150px) 1fr; */
+  grid-row-gap: 20px; /*spazia le righe*/
+  grid-column-gap: 50px;/*spazia le colonne*/ /*grid-gap: 50px; se vogliamo la stessa spaziatura in row e column*/ 
+  /* è possibile dare dei nomi cosi ->[header]  ai grid template row  e column.negli item poi possiamo scrivere questi nomi anziche 1/3 2/3 ecc*/
+
+}
+
+
+.header{
+  grid-column:1/-1 ;
+  background-color: red;
+}
+
+.smallbox{
+  background-color: red;
+}
+
+.sidebar{
+  background-color: red;
+  grid-row: 2/ span 2;  /*POSSIAMO USARE ANCHE SPAN 1,2,3 ECC come elemento finale PER FAR CRESCERE L'ELEMENTO IL DOPPIO IL TRIPLO ECC*/
+  grid-column: 4/5;
+}
+
+.main{
+  background-color: red;
+ 
+  grid-column: 1/span 3;
+}
+
+
+.footer{
+grid-column:1/-1 ;
+  background-color: red;
+}
+
+
+
+
+
+
+
+/*****HTML VECCHIO****/    
+
+/*
+<div class="container">
+            <div class="item item--1">1: orange</div>
+            <div class="item item--2">2: green</div>
+            <div class="item item--3">3: violet</div>
+            <div class="item item--4">4: pink</div>
+            <div class="item item--5">5: blue</div>
+            <div class="item item--6">6: brown</div>
+        </div>
+*/
+
+/**CSS**/
+
+
+/*
+.container {
+  width: 1000px;
+  background-color: grey;
+  margin:30px auto;
+  display: grid;  prima proprieta. dopo dobbiamo definire righe e colonne.se vogliamo 2 righe e 3 colonne definiamo altezza di row e column.Il totale cmq deve sempre dare totale item
+  grid-template-rows: repeat(2, 150px);  il totale di row e column deve essere lo stesso degli item (in questo caso 6 percio 2 righe x 3 colonne). repeat 2 righe di 150px 
+  grid-template-columns: repeat(3, 1fr); fr:fractional unit,permette di occupare tutto lo spazio del container.Se tutte devono usare il container tranne l'ultima:repeat(2,150px) 1fr; 
+  grid-row-gap: 20px; spazia le righe
+  grid-column-gap: 50px;  spazia le colonne  /  grid-gap: 50px; se vogliamo la stessa spaziatura in row e column
+  
+}
+
+.item{
+padding: 20px;
+font-size: 30px;
+font-family: sans-serif;
+color: white;
+}
+
+.item--1{
+background-color:orange;
+grid-row-start: 2; diciamo in quale riga deve iniziare quest item
+grid-row-end: 3;  rimane su questa riga xk ci sono 3 colonne
+grid-row: 2/3; metodo piu veloce dei precedenti
+grid-column-start: 2; diciamo in quale colonna deve essere collocato l'item
+grid-column-end: 3; diciamo in quale colonna deve finire la posizione dell item
+grid-column: 2/3;  
+}
+.item--2{
+  background-color: green;
+}
+.item--3{
+  background-color: violet;
+}
+.item--4{
+  background-color: pink;
+}
+.item--5{
+  background-color: blue;
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+.item--6{
+  background-color: brown;
+  grid-row:1/2;
+  grid-column:2/3;
+}
+
+*/
